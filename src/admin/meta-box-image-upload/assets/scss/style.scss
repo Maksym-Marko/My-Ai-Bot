@@ -1,0 +1,17 @@
+.mx-image-uploader {
+    & button {
+        display: block;
+        background: var(--wp-components-color-accent, var(--wp-admin-theme-color, #3858e9));
+        color: var(--wp-components-color-accent-inverted, #fff);
+        outline: 1px solid #000000;
+        text-decoration: none;
+        text-shadow: none;
+        white-space: nowrap;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        &.mx-meta-box-image-remove {
+            background: #e95d5d;
+        }
+    }
+}

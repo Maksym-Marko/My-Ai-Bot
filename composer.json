@@ -1,0 +1,27 @@
+{
+    "name": "wpp-generator/lsomab-my-ai-bot",
+    "description": "WPPG-NEXT - boilerplate for your best WordPress plugin.",
+    "type": "project",
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "autoload": {
+        "psr-4": {
+            "LSOMABWPPGNext\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maksym Marko",
+            "email": "markomaksym@gmail.com"
+        }
+    ],
+    "require": {
+        "openai-php/client": "^0.13.0",
+        "symfony/http-client": "^7.3",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

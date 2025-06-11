@@ -1,0 +1,430 @@
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/frontend/chat-bot/assets/css/main.scss ***!
+  \*************************************************************************************************************************************/
+:root {
+  /* Body */
+  --wppg-next-color-base: var(--wppgn-color-base, #FFFFFF);
+  --wppg-next-color-contrast: var(--wppgn-color-contrast, #1A2024);
+  --wppg-next-color-accent-1-50: var(--wppgn-color-accent-1-50, rgb(15 35 173 / 5%));
+  --wppg-next-color-accent-1: var(--wppgn-color-accent-1, #433abf);
+  --wppg-next-color-accent-2: var(--wppgn-color-accent-2, #e53e3e);
+  --wppg-next-color-accent-3: var(--wppgn-color-accent-3, #FFB800);
+  /* Gray colors */
+  --wppg-next-color-gray-50: var(--wppgn-color-gray-50, #F5F7F9);
+  --wppg-next-color-gray-100: var(--wppgn-color-gray-100, #E0E0E0);
+  --wppg-next-color-gray-150: var(--wppgn-color-gray-150, rgba(0, 0, 0, 0.05));
+  --wppg-next-color-gray-200: var(--wppgn-color-gray-200, #6b7280);
+  --wppg-next-color-gray-250: var(--wppgn-color-gray-250, #4A5056);
+  --wppg-next-color-gray-300: var(--wppgn-color-gray-300, rgba(17, 24, 39, 0.7));
+  /*
+  * Statuses colors
+  */
+  /* Success */
+  --wppg-next-color-success-100: var(--wppgn-color-success-100, #F0FDF4);
+  --wppg-next-color-success-200: var(--wppgn-color-success-200, #22C55E);
+  /* Warning */
+  --wppg-next-color-warning-200: var(--wppgn-color-warning-200, #FFA000);
+  /* Error */
+  --wppg-next-color-error-100: var(--wppgn-color-error-100, #FEE2E2);
+  --wppg-next-color-error-200: var(--wppgn-color-error-200, #EF4444);
+}
+
+.lsomab-not-found {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.lsomab-react-js-app-container {
+  background: var(--wppg-next-color-accent-1-50);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.lsomab-menu-item-content {
+  width: 100%;
+}
+
+.lsomab-header {
+  background-color: var(--wppg-next-color-accent-1);
+  color: var(--wppg-next-color-base);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lsomab-header h1 {
+  font-size: 1.5rem;
+  color: var(--wppg-next-color-base);
+}
+
+.lsomab-nav-links a {
+  color: var(--wppg-next-color-base);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+.lsomab-nav-links a.lsomab-nav-link_active {
+  text-decoration: underline;
+}
+
+.lsomab-nav-links a:hover {
+  text-decoration: underline;
+}
+
+.lsomab-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lsomab-category-title {
+  color: #1A2024;
+  margin: 2rem 1rem 1rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.lsomab-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.lsomab-menu-item {
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #FFFFFF;
+}
+
+.lsomab-menu-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--wppg-next-color-accent-1);
+}
+
+.lsomab-menu-item-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1A2024;
+  margin-bottom: 0.5rem;
+}
+
+.lsomab-no-tasks-found {
+  justify-content: center;
+}
+.lsomab-no-tasks-found > div {
+  margin: 0;
+  text-align: center;
+}
+
+.lsomab-menu-item-description {
+  color: #4A5056;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.lsomab-task-footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lsomab-complete-button,
+.lsomab-redo-button,
+.lsomab-delete-button {
+  background-color: var(--wppg-next-color-accent-1);
+  color: var(--wppg-next-color-base);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.lsomab-delete-button {
+  background-color: var(--wppg-next-color-accent-3);
+}
+
+.lsomab-complete-button:hover,
+.lsomab-redo-button:hover,
+.lsomab-delete-button:hover {
+  filter: brightness(0.9);
+}
+
+form.lsomab-menu-item input,
+form.lsomab-menu-item textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form.lsomab-menu-item textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button.lsomab-add-to-cart {
+  background-color: var(--wppg-next-color-accent-1);
+  color: var(--wppg-next-color-base);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+button.lsomab-add-to-cart:hover {
+  filter: brightness(0.9);
+}
+
+.lsomab-redo-button {
+  background-color: var(--wppg-next-color-accent-1);
+  color: var(--wppg-next-color-base);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lsomab-redo-button:hover {
+  filter: brightness(0.9);
+}
+
+.lsomab-save-tasks-area {
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.lsomab-flash-box {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9;
+}
+
+.wppgn-flash-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--wppg-next-color-base);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--wppg-next-color-gray-150);
+  min-width: 300px;
+  max-width: 450px;
+  animation: slideIn 0.3s ease forwards;
+  margin-bottom: 20px;
+  z-index: 9;
+}
+.wppgn-flash-message.wppgn-success {
+  border-left: 4px solid var(--wppg-next-color-success-200);
+}
+.wppgn-flash-message.wppgn-success .wppgn-icon {
+  color: var(--wppg-next-color-success-200);
+}
+.wppgn-flash-message .wppgn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.wppgn-flash-message .wppgn-content {
+  flex: 1;
+}
+.wppgn-flash-message .wppgn-title {
+  font-weight: 500;
+  color: var(--wppg-next-color-contrast);
+  margin-bottom: 0.25rem;
+}
+.wppgn-flash-message .wppgn-flash-description {
+  font-size: 0.9rem;
+  color: var(--wppg-next-color-gray-200);
+}
+.wppgn-flash-message .wppgn-close {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  color: var(--wppg-next-color-gray-200);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.wppgn-flash-message .wppgn-close:hover {
+  background: var(--wppg-next-color-gray-100);
+  color: var(--wppg-next-color-contrast);
+}
+.wppgn-flash-message.wppgn-error {
+  border-left: 4px solid var(--wppg-next-color-error-200);
+}
+.wppgn-flash-message.wppgn-error .wppgn-icon {
+  color: var(--wppg-next-color-error-200);
+}
+.wppgn-flash-message.wppgn-warning {
+  border-left: 4px solid var(--wppg-next-color-warning-200);
+}
+.wppgn-flash-message.wppgn-warning .wppgn-icon {
+  color: var(--wppg-next-color-warning-200);
+}
+.wppgn-flash-message .removing {
+  animation: slideOut 0.3s ease forwards;
+}
+@media (max-width: 768px) {
+  .wppgn-flash-message .wppgn-container {
+    top: auto;
+    bottom: 2rem;
+    left: 1rem;
+    right: 1rem;
+  }
+  .wppgn-flash-message.wppgn-flash-message {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+.lsomab-chat-area {
+  background: #f7f7fa;
+  border-radius: 10px;
+  padding: 1.5rem 1rem 1rem 1rem;
+  min-height: 220px;
+  max-height: 350px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(67, 58, 191, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.lsomab-chat-empty {
+  color: #aaa;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.lsomab-chat-message {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.lsomab-chat-user {
+  justify-content: flex-start;
+}
+
+.lsomab-chat-assistant {
+  justify-content: flex-end;
+}
+
+.lsomab-chat-bubble {
+  max-width: 70%;
+  padding: 0.75rem 1.1rem;
+  border-radius: 18px;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-shadow: 0 1px 4px rgba(67, 58, 191, 0.06);
+  margin-bottom: 2px;
+}
+
+.lsomab-chat-user .lsomab-chat-bubble {
+  background: #fff;
+  color: #1A2024;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border: 1px solid #e0e0e0;
+  align-self: flex-start;
+}
+
+.lsomab-chat-assistant .lsomab-chat-bubble {
+  background: var(--wppg-next-color-accent-1);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border: 1px solid var(--wppg-next-color-accent-1);
+  align-self: flex-end;
+}
+
+.lsomab-chat-form {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.lsomab-chat-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.lsomab-chat-input:focus {
+  border: 1.5px solid var(--wppg-next-color-accent-1);
+}
+
+.lsomab-chat-submit {
+  background: var(--wppg-next-color-accent-1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lsomab-chat-submit:hover {
+  background: #2d267a;
+}
+
+@media (max-width: 600px) {
+  .lsomab-chat-area {
+    min-height: 120px;
+    max-height: 200px;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+  }
+  .lsomab-chat-bubble {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .lsomab-chat-form {
+    gap: 0.3rem;
+  }
+  .lsomab-chat-submit {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/*# sourceMappingURL=index.css.map*/
