@@ -7,6 +7,7 @@
 
 defined('ABSPATH') || exit;
 
+// Save API Key
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['api_key'])) {
     if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'save_api_key')) {
@@ -18,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['api_key'])) {
     }
 }
 
+// Create Vector Store
 if (
     $_SERVER['REQUEST_METHOD'] === 'POST' &&
     isset($_POST['vector_store_name']) &&
@@ -77,7 +79,7 @@ if (
                 // The actual OpenAI API call for assistant creation
                 $result = $client->assistants()->create([
                     'name' => $assistantName,
-                    "instructions" => "You are a personal assistant for a website. You are able to search the info in the vector store and answer users questions. You answer only question that are related to the vector store information. If the question is not related to the vector store information, you should say 'I do not know'. Never search for information that is not in the vector store.",
+                    "instructions" => "You are a helpful assistant with access to website documents stored in a vector store. Use those documents to answer questions when possible. If the documents don’t cover the topic, reply: “I’m not sure — the documents don’t contain that information.” Do not use outside knowledge unless instructed to.",
                     'tools' => [
                         [
                             'type' => 'file_search',

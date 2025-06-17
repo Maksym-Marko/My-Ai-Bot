@@ -19,6 +19,8 @@ const handleResponse = async (args, api, extraOptions) => {
 
     let result = await baseQuery(args, api, extraOptions)
 
+    console.log(result)
+
     if (result?.data?.status === 'success') {
 
         api.dispatch(setSuccess({ message: result?.data?.message }))
