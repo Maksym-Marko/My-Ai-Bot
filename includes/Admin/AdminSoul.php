@@ -61,6 +61,7 @@ class AdminSoul
     {
 
         PostTypeGenerator::registerFrameworkPostType();
+        PostTypeGenerator::registerThreadsPostType();
     }
 
     /**

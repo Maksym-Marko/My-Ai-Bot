@@ -104,6 +104,7 @@ if (
     }
 }
 
+// Upload posts to vector store
 if (
     $_SERVER['REQUEST_METHOD'] === 'POST' &&
     isset($_POST['upload_posts_to_vector_store'])
@@ -116,6 +117,8 @@ if (
         if (empty($api_key) || empty($vector_store_id)) {
             $message = __('API Key or Vector Store ID is missing.', 'my-ai-bot');
         } else {
+
+            // Get all published posts
             $posts = get_posts([
                 'post_type' => 'post',
                 'post_status' => 'publish',
@@ -129,14 +132,21 @@ if (
                     $success = 0;
                     $fail = 0;
                     foreach ($posts as $post) {
+
+                        // Check if the post already has an OpenAI file ID
+                        $openai_file_id = get_post_meta($post->ID, 'openai_file_id', true);
+                        if (!empty($openai_file_id)) {
+                            $success++;
+                            continue;
+                        }
+
                         // Get post content and remove all HTML comments
                         $content = $post->post_title . "\n\n" . $post->post_content;
                         // Remove HTML comments: <!-- ... -->
                         $content_no_comments = preg_replace('/<!--.*?-->/s', '', $content);
 
                         // Create a temporary .html file
-                        $tmpfname = tempnam(sys_get_temp_dir(), 'post_');
-                        $tmphtml = $tmpfname . '.html';
+                        $tmphtml = sys_get_temp_dir() . '\post-' . $post->ID . '.html';
                         // Write content to .html file
                         file_put_contents($tmphtml, $content_no_comments);
 
@@ -150,6 +160,10 @@ if (
                                 $client->vectorStores()->files()->create($vector_store_id, [
                                     'file_id' => $fileResult['id'],
                                 ]);
+
+                                // Save the OpenAI file ID to post meta
+                                update_post_meta($post->ID, 'openai_file_id', esc_attr($fileResult['id']));
+
                                 $success++;
                             } else {
                                 $fail++;
@@ -160,10 +174,6 @@ if (
                         // Remove the temporary .html file
                         if (file_exists($tmphtml)) {
                             unlink($tmphtml);
-                        }
-                        // Also remove the original temp file (without .html extension)
-                        if (file_exists($tmpfname)) {
-                            unlink($tmpfname);
                         }
                     }
                     $message = sprintf(__('Uploaded %d posts to the vector store. %d failed.', 'my-ai-bot'), $success, $fail);

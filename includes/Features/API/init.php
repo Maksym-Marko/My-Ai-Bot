@@ -13,6 +13,8 @@ use LSOMABWPPGNext\Features\API\Routes\NextJS\GetStylesRoute;
 use LSOMABWPPGNext\Features\API\Routes\NextJS\GetAllPagesRoute;
 use LSOMABWPPGNext\Features\API\Routes\NextJS\GetPageBySlugRoute;
 use LSOMABWPPGNext\Features\API\Routes\NextJS\GetMenuItemsRoute;
+use LSOMABWPPGNext\Features\API\Routes\ChatBot\AskAssistantRoute;
+use LSOMABWPPGNext\Features\API\Routes\ChatBot\GetThreadsRoute;
 
 if (!function_exists('lsomabInitializeRestRoutes')) {
     /**
@@ -27,6 +29,8 @@ if (!function_exists('lsomabInitializeRestRoutes')) {
             new DeletePostMetaImageRoute,
             new GetTaskListRoute,
             new UpdateTaskListRoute,
+            new AskAssistantRoute,
+            new GetThreadsRoute,
 
             // Next.js
             new GetStylesRoute,

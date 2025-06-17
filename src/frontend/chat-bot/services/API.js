@@ -35,7 +35,21 @@ const handleResponse = async (args, api, extraOptions) => {
 
 const API = createApi({
     baseQuery: handleResponse,
-    endpoints: builder => ({}),
+    endpoints: builder => ({
+        askAssistant: builder.mutation({
+            query: ({ user_question, thread_id }) => ({
+                url: '/chatbot/ask',
+                method: 'POST',
+                body: thread_id ? { user_question, thread_id } : { user_question },
+            }),
+        }),
+        getThreads: builder.query({
+            query: () => ({
+                url: '/chatbot/threads',
+                method: 'GET',
+            }),
+        }),
+    }),
 })
 
 export default API
