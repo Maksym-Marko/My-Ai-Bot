@@ -47,4 +47,4 @@ class GetThreadsRoute extends AbstractRestRouteHandler
             'threads' => $threads
         ], 200);
     }
-} 
+}

@@ -1,54 +1,24 @@
 import { __ } from '@wordpress/i18n'
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from "react-redux"
-import { taskDone, addTask } from "@chatBot/store/slices/taskList/taskListSlice"
-import SaveTasks from "@chatBot/components/SaveTasks"
-import { v4 as uuidv4 } from 'uuid'
-import { NoTasksFound } from "@chatBot/components/NoTasksFound"
-import API from "@chatBot/services/API"
-import { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { useAskAssistantMutation, useGetThreadsQuery } from "@chatBot/services/ChatManager"
 
 // const { __ } = wp.i18n // this for translate, because '@wordpress/i18n' does not work to display the translate text
 
 const Home = () => {
 
-    const tasks = useSelector((state) => state.taskList.tasks)
-
-    const dispatch = useDispatch()
-
-    const [newTask, setNewTask] = useState({ id: uuidv4(), title: '', description: '', isDone: false })
     const [chatInput, setChatInput] = useState('');
     const [chatHistory, setChatHistory] = useState([]);
     const [threadId, setThreadId] = useState(null);
-    const [askAssistant, { isLoading }] = API.useAskAssistantMutation();
-    const { data: threadsData, isLoading: threadsLoading } = API.useGetThreadsQuery();
+    const [askAssistant, { isLoading }] = useAskAssistantMutation();
+    const { data: threadsData, isLoading: threadsLoading } = useGetThreadsQuery();
 
-    const handleComplete = (id) => {
+    const chatAreaRef = useRef(null);
 
-        dispatch(taskDone({ taskId: id }))
-    }
-
-    const handleInputChange = (e) => {
-
-        const { name, value } = e.target
-
-        setNewTask({ ...newTask, [name]: value })
-    }
-
-    const handleAddTask = (e) => {
-
-        e.preventDefault()
-
-        if (!newTask.title.trim() || !newTask.description.trim()) {
-
-            alert(__('Validation failed: All fields are required.', 'my-ai-bot'))
-            return
+    useEffect(() => {
+        if (chatAreaRef.current) {
+            chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
         }
-
-        dispatch(addTask({ task: newTask }))
-
-        setNewTask({ id: uuidv4(), title: '', description: '', isDone: false })
-    }
+    }, [chatHistory]);
 
     const handleChatInputChange = (e) => {
         setChatInput(e.target.value);
@@ -96,6 +66,7 @@ const Home = () => {
                 <label htmlFor="lsomab-thread-select" style={{ marginRight: 8 }}>{__('Select Thread:', 'my-ai-bot')}</label>
                 <select
                     id="lsomab-thread-select"
+                    className="lsomab-thread-select"
                     value={threadId || ''}
                     onChange={handleThreadChange}
                     disabled={threadsLoading}
@@ -109,7 +80,7 @@ const Home = () => {
                 </select>
             </div>
             {/* Chat Simulation */}
-            <div className="lsomab-chat-area">
+            <div className="lsomab-chat-area" ref={chatAreaRef}>
                 {chatHistory.length === 0 && (
                     <div className="lsomab-chat-empty">{__('No messages yet. Start the conversation!', 'my-ai-bot')}</div>
                 )}
@@ -136,8 +107,6 @@ const Home = () => {
                 </button>
             </form>
             {/* End Chat Simulation */}
-
-            {/* ...existing code... */}
         </div>
     )
 }

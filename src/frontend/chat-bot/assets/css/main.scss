@@ -447,3 +447,35 @@ button.lsomab-add-to-cart:hover {
         font-size: 0.95rem;
     }
 }
+
+.lsomab-thread-select {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--wppg-next-color-accent-1);
+    background: var(--wppg-next-color-base);
+    color: var(--wppg-next-color-contrast);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(67, 58, 191, 0.04);
+    outline: none;
+    margin-right: 0.5rem;
+}
+
+.lsomab-thread-select:focus {
+    border-color: var(--wppg-next-color-accent-2);
+    box-shadow: 0 0 0 2px var(--wppg-next-color-accent-1-50);
+}
+
+.lsomab-thread-select:disabled {
+    background: var(--wppg-next-color-gray-100);
+    color: var(--wppg-next-color-gray-250);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+    .lsomab-thread-select {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+    }
+}

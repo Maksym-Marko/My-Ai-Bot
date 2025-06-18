@@ -4,7 +4,6 @@ import DefaultLayout from "@chatBot/components/DefaultLayout"
 
 // Pages
 import Home from "@chatBot/pages/Home"
-import Bin from "@chatBot/pages/Bin"
 import NotFound from "@chatBot/pages/NotFound"
 
 const router = createHashRouter([
@@ -16,10 +15,6 @@ const router = createHashRouter([
                 index: true,
                 element: <Home />,
             },
-            // {
-            //     path: 'bin',
-            //     element: <Bin />,
-            // },
             {
                 path: '*',
                 element: <NotFound />,

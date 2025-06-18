@@ -19,8 +19,6 @@ const handleResponse = async (args, api, extraOptions) => {
 
     let result = await baseQuery(args, api, extraOptions)
 
-    console.log(result)
-
     if (result?.data?.status === 'success') {
 
         api.dispatch(setSuccess({ message: result?.data?.message }))
@@ -37,21 +35,7 @@ const handleResponse = async (args, api, extraOptions) => {
 
 const API = createApi({
     baseQuery: handleResponse,
-    endpoints: builder => ({
-        askAssistant: builder.mutation({
-            query: ({ user_question, thread_id }) => ({
-                url: '/chatbot/ask',
-                method: 'POST',
-                body: thread_id ? { user_question, thread_id } : { user_question },
-            }),
-        }),
-        getThreads: builder.query({
-            query: () => ({
-                url: '/chatbot/threads',
-                method: 'GET',
-            }),
-        }),
-    }),
+    endpoints: builder => ({}),
 })
 
 export default API

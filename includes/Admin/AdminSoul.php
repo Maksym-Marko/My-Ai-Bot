@@ -60,7 +60,6 @@ class AdminSoul
     public function registerPostTypes(): void
     {
 
-        PostTypeGenerator::registerFrameworkPostType();
         PostTypeGenerator::registerThreadsPostType();
     }
 
